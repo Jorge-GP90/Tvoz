@@ -10,51 +10,51 @@
         <% if user_signed_in? %>
           <% if current_user.try(:admin?) %>
             <li class="nav-item active">
-              <%= link_to rails_admin_path, class: 'nav-link' do %>
+              <%= button_to rails_admin_path, class: 'nav-link btn btn-outline-dark' do %>
                 <i class="fas fa-user-cog"> Admin </i>
               <% end %>
             </li>
             <li class="nav-item active">
-            <%= link_to destroy_user_session_path(current_user.id), method: :delete, class: 'nav-link' do %>
+            <%= button_to destroy_user_session_path(current_user.id), method: :delete, class: 'nav-link btn btn-outline-dark' do %>
               <i class="fas fa-sign-out-alt"> Logout</i>
             <% end %>
             </li>
           <% end %> 
            <% if current_user.role == "teacher" %> 
             <li class="nav-item active">
-              <%= link_to new_task_path, class: 'nav-link' do %>
+              <%= link_to new_task_path, class: 'nav-link btn btn-outline-dark' do %>
               <i class="fas fa-plus"> </i>
               <% end %>
             </li>
            <% end %> 
           <li class="nav-item active">
-            <%= link_to profile_user_path(current_user.id), class: 'nav-link' do %> 
+            <%= link_to profile_user_path(current_user.id), class: 'nav-link btn btn-outline-dark' do %> 
               <i class="fa-solid fa-user"></i> 
             <% end %> 
           </li>
           <li class="nav-item active">
-            <%= link_to community_user_path(current_user.id), class: 'nav-link' do %> 
+            <%= link_to community_user_path(current_user.id), class: 'nav-link btn btn-outline-dark' do %> 
               <i class="fas fa-users"> </i>
             <% end %> 
           </li>
           <li class="nav-item active">
-            <%= link_to tasks_path, class: 'nav-link' do %>   
+            <%= link_to tasks_path, class: 'nav-link btn btn-outline-dark' do %>   
               <i class="fa-solid fa-house">Tvoz </i>
             <% end %>
           </li>
           <li class="nav-item active">
-             <%= button_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+             <%= button_to destroy_user_session_path, method: :delete, class: 'nav-link btn btn-outline-dark' do %>
                <i class="fas fa-sign-out-alt"> Logout</i>
              <% end %>
           </li>
         <% else %>
           <li class="nav-item active">
-            <%= link_to new_user_session_path, class: 'nav-link' do %>
+            <%= link_to new_user_session_path, class: 'nav-link btn btn-outline-dark' do %>
               <i class="fas fa-sign-in-alt"> Login</i>
             <% end %>
           </li>
           <li class="nav-item active">
-            <%= link_to new_user_registration_path, class: 'nav-link' do %>
+            <%= link_to new_user_registration_path, class: 'nav-link btn btn-outline-dark' do %>
               <i class="fas fa-user-plus">Sign up</i>
             <% end %>
           </li>

@@ -10,11 +10,12 @@
           <p clas="card-text"><%= @user.email %></p><br>
           <p clas="card-text"><%= @user.role %></p><br>
           <p clas="card-text"><%= @user.admin? ? 'Admin' : 'none' %></p><br>
-          <% if current_user.following?(@user) %>
-            <%= button_to "unfollow", relationship_path(followed_id: @user.followed.find_by(follower_id: current_user.id).id), method: :delete, class: "btn btn-outline-primary show-btn" %>  
-          <% else %> 
-            <%= button_to "follow", relationships_path(user_id: @user.id), method: :post, class: "btn btn-outline-primary show-btn" %>
-            
+          <% unless current_user.id == @user.id %>
+            <% if current_user.following?(@user) %>
+              <%= button_to "unfollow", relationship_path(followed_id: @user.followed.find_by(follower_id: current_user.id).id), method: :delete, class: "btn btn-outline-primary show-btn" %>  
+            <% else %> 
+              <%= button_to "follow", relationships_path(user_id: @user.id), method: :post, class: "btn btn-outline-primary show-btn" %> 
+            <% end %>
           <% end %>
           <div class="connect padding">
             <% if current_user.connected?(@user) %>

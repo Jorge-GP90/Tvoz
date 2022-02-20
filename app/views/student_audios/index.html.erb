@@ -5,22 +5,38 @@
 <table>
   <thead>
     <tr>
-      <th>Audio student</th>
-      <th>User</th>
+      <th>Title</th>
       <th>Task</th>
+      <th>Audio student</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @student_audios.each do |student_audio| %>
+    <% @student_audios.each do |student_audios| %>
       <tr>
-        <td><%= student_audio.audio_student %></td>
-        <td><%= student_audio.user_id %></td>
-        <td><%= student_audio.task_id %></td>
-        <td><%= link_to 'Show', student_audio %></td>
-        <td><%= link_to 'Edit', edit_student_audio_path(student_audio) %></td>
-        <td><%= link_to 'Destroy', student_audio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= student_audios.task.title %></td>
+        <td>
+          <% if student_audios.task.audio.attached? %>
+            <audio controls src="<%= url_for(student_audios.task.audio) %> "></audio>
+          <% else %>
+            <h5>No audio</h5>
+          <% end %>
+        </td>
+        <td>
+          <% if student_audios.task.image.attached? %>
+            <%= image_tag(student_audios.task.image, id:'task-img') %>
+          <% else %>
+            <h5>No image</h5>
+          <% end %>  
+        </td>
+        <td>
+          <% if student_audios.audio_student.attached? %>
+             <audio controls src="<%= url_for(student_audios.audio_student) %> "></audio>
+          <% else %>
+            <h5>No audio</h5>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +44,16 @@
 
 <br>
 
-<%= link_to 'New Student Audio', new_student_audio_path %>
+<%#= link_to 'New Student Audio', new_student_audio_path %>
+   <%# <td> %>
+      <%#= link_to 'Show', student_audios %>
+    <%# </td>  %>
+    <%# <td> %>
+      <%#= link_to 'Edit', edit_task_student_audio_path(student_audios) %>
+    <%# </td> %>
+    <%# <td> %>
+      <%#= link_to 'Destroy', student_audios, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%# </td> %>
+
+
+

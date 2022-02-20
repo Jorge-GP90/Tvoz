@@ -11,29 +11,20 @@
     </div>
   <% end %>
 
-  <% if current_user.role == "teacher" %>
-    <div class="field text-center">
-      <%= form.label :title %>
-      <%= form.text_area :title, class: 'form-control' %>
-    </div>
+  <div class="field text-center">
+    <%= form.label :title %>
+    <%= form.text_area :title, class: 'form-control' %>
+  </div>
+  <div class="field text-center">
+    <%= form.label :audio %>
+    <%= form.file_field :audio, class: 'custom-file-input'  %>
+  </div>
+  <div class="field text-center">
+    <%= form.label :image %>
+    <%= form.file_field :image, class: 'custom-file-input' %>
+  </div>
 
-    <div class="field text-center">
-      <%= form.label :audio %>
-      <%= form.file_field :audio, class: 'btn btn-light'  %>
-    </div>
-
-    <div class="field text-center">
-      <%= form.label :image %>
-      <%= form.file_field :image, class: 'btn btn-light' %>
-    </div>
-  <% end %>
-
-    <div class="field text-center">
-      <%= form.label :Tvoz %>
-      <%= form.file_field :audio_record, class: 'btn btn-light' %>
-    </div>
-  
-    <div class="actions text-center row">
-      <%= form.submit class: 'btn btn-primary' %>
-    </div>
+  <div class="actions text-center row">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>

@@ -14,7 +14,9 @@ class TasksController < ApplicationController
 
   # GET /tasks/1 or /tasks/1.json
   def show
-    
+    @user = current_user
+    @tasks = Task.find(params[:id]).student_audios.where(user_id: @user.id)
+    @student_audios = StudentAudio.select(:audio_student)
   end
  
   # GET /tasks/new
@@ -76,6 +78,6 @@ class TasksController < ApplicationController
   end
   # Only allow a list of trusted parameters through.
   def task_params
-    params.require(:task).permit(:title, :content, :image, :audio_record, :audio, :user_id, :created_at, :task_avatar, :page)
+    params.require(:task).permit(:title, :content, :image, :audio_student, :audio, :user_id, :created_at, :page)
   end
 end

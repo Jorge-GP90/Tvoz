@@ -13,9 +13,10 @@ Rails.application.routes.draw do
       get 'community'
     end
   end
-  
-  resources :student_audios
-  resources :tasks 
+
+  resources :tasks do
+    resources :student_audios
+  end
   resources :relationships, only: %i[create destroy connect]
 
 
