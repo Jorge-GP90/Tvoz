@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Student Audios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Audio student</th>
+      <th>User</th>
+      <th>Task</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_audios.each do |student_audio| %>
+      <tr>
+        <td><%= student_audio.audio_student %></td>
+        <td><%= student_audio.user_id %></td>
+        <td><%= student_audio.task_id %></td>
+        <td><%= link_to 'Show', student_audio %></td>
+        <td><%= link_to 'Edit', edit_student_audio_path(student_audio) %></td>
+        <td><%= link_to 'Destroy', student_audio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student Audio', new_student_audio_path %>
