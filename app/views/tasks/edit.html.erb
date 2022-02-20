@@ -1,6 +1,20 @@
-<h1>Editing Task</h1>
+<div class="container-fluid padding" id="loggin-top">
+  <div class="row justify-content-center">
+    <div class="col-md-4" id="loggin-inner-top">  
+      <div class="form-group text-center">
+        <% if current_user.role == "teacher" %>
+          <h1>Editing Task</h1>
+        <% else %>
+          <h1>Homework</h1>
+        <% end %>
+        <div class="container-fluid padding">
+          <%= render 'form', task: @task %>
+        </div>
+        <div class=" text center">
+          <%= link_to 'Back', tasks_path, class: "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', task: @task %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>

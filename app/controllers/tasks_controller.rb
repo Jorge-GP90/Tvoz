@@ -14,14 +14,9 @@ class TasksController < ApplicationController
 
   # GET /tasks/1 or /tasks/1.json
   def show
-  
+    
   end
  
-  def student_show
-    @task = Task.select(:id, :title, :content, :image, :audio_record, :audio, :created_at, :user_id).order(created_at: :DESC).page
-  
-  end
-
   # GET /tasks/new
   def new
     @task = Task.new
@@ -29,7 +24,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    
   end
 
   # POST /tasks or /tasks.json
@@ -49,9 +43,10 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1 or /tasks/1.json
   def update
     respond_to do |format|
+      # binding.pry
       if @task.update(task_params)
-        format.html { redirect_to student_show_task_url(@task), notice: "Task was successfully updated." }
-        format.json { render :student_show, status: :ok, location: @task }
+        format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
+        format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }

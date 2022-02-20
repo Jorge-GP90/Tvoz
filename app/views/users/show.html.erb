@@ -4,7 +4,7 @@
     <div class="col-md-4" id="loggin-inner-top">
       <div class="card">
         <img class="card-img-top" src="/images/default_avatar.png">
-        <div class="card-body text-center">
+        <div class="card-body text-center m-2">
           <h3 class="card-title"> <%= @user.name %> </h3>
           <p clas="card-text"><%= @user.name %></p><br>
           <p clas="card-text"><%= @user.email %></p><br>
@@ -16,9 +16,9 @@
             <%= button_to "follow", relationships_path(user_id: @user.id), method: :post, class: "btn btn-outline-primary show-btn" %>
             
           <% end %>
-          <div class="connect">
+          <div class="connect padding">
             <% if current_user.connected?(@user) %>
-              <button id="connect"><i class="fas fa-users">Connected </i></button> 
+              <button id="connect" class="btn btn-outline-success show-btn"><i class="fas fa-users">Connected </i></button> 
             <% end %>
           </div> 
         </div>
@@ -31,42 +31,41 @@
 
 <%# ONLY TEACHERS %>
 <% if current_user.role == "teacher" %>
-<div class="container-fluid padding" id="task-table-background">
-  <div class="row justify-content-center">
-    <div class="col-lg-12" id="task-inner-table">
-      <div class="table-responsive"> 
-        <table class="table">
-          <thead class="table-dark">
-            <tr>
-              <th>Topic</th>
-              <th>Image</th>
-              <th>User</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @tasks.each do |task| %>
+  <div class="container-fluid padding" id="task-table-background">
+    <div class="row justify-content-center">
+      <div class="col-lg-12" id="task-inner-table">
+        <div class="table-responsive"> 
+          <table class="table">
+            <thead class="table-dark">
               <tr>
-                <td><%= task.title %></td>
-                <% if task.image.attached? %>
-                  <%# <td><%= image_tag task.image.variant(resize: "70x70") %>
-                  <%# </td> %>
-                <% else %>
-                  <td></td>
-                <% end %> 
-                <td><%= task.user_id %></td> 
-                <td><%= link_to 'Show', task %></td>
-                <td><%= link_to 'Edit', edit_task_path(task) %></td>
-                <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <th>Topic</th>
+                <th>Image</th>
+                <th>User</th>
+                <th colspan="3"></th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% @tasks.each do |task| %>
+                <tr>
+                  <td><%= task.title %></td>
+                  <% if task.image.attached? %>
+                    <%# <td><%= image_tag task.image.variant(resize: "70x70") %>
+                    <%# </td> %>
+                  <% else %>
+                    <td></td>
+                  <% end %> 
+                  <td><%= task.user_id %></td> 
+                  <td><%= link_to 'Show', task %></td>
+                  <td><%= link_to 'Edit', edit_task_path(task) %></td>
+                  <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 <%= paginate @tasks %>
 
 <% end %> 

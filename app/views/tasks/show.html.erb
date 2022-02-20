@@ -1,75 +1,55 @@
 <div class=" container-fluid padding" id="task-show-background">
   <div clas="row padding justify-content-center">
-    <div class="col-12">
-  <%= form_with(model: @task, local: true ) do |form| %>
-    <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-      <ul>
-        <% @task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-    <div class="col-lg-12" id="task-show">
-      <p class="text-center">
-      <strong>Title:</strong>
-      <%= form.hidden_field :title %>
-      <%= @task.title %>
-      </p>
-    </div>
-    <div class="col-lg-12" id="task-show"> 
-      <p>
-       <%= form.hidden_field :audio %>
-      <% if @task.audio.attached? %>
-        <audio controls src="<%= url_for(@task.audio) %> "></audio>
-      <% end %>    
-      </p>
-    </div>
-    <div class="col-lg-12" id="task-show">
-      <p>
-      <%= form.hidden_field :image %>
-      <% if @task.image.attached? %>
-           <%= image_tag(@task.image, id:'task-img' ) %>
-      <% end %>   
-      </p>
-    </div>
-    <div class="col-lg-12" id="task-show">
-      <% if @task.audio_record? %>
-        <p>
-          <strong>Tvoz:</strong>
-          <audio controls src="<%= url_for(@task.audio_record) %> "></audio>
+      <div class="col-lg-12" id="task-show">
+        <p class="text-center">
+          <strong>Title:</strong>
+           <%= @task.title %>
         </p>
-      <% else %>
-        <div class="field">
-          <%= form.label :Tvoz %>
-          <%= form.file_field :audio_record %>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-lg-12" id="task-show">
-      <div class="actions">
-        <%= form.submit %>
       </div>
-  <% end %>
-    </div>
-    <div class="col-lg-12" id="task-show"> 
+      <div class="col-lg-12" id="task-show"> 
+        <p>
+          <% if @task.audio.attached? %>
+            <audio controls src="<%= url_for(@task.audio) %> "></audio>
+          <% else %>
+            <audio controls src="<%= url_for(@task.audio) %> ">No audio</audio>
+          <% end %>    
+        </p>
+      </div>
+      <div class="col-lg-12" id="task-show">
+        <p>
+          <% if @task.image.attached? %>
+            <%= image_tag(@task.image, id:'task-img' ) %>
+          <% else %>
+            <h5>No image</h5>
+          <% end %>   
+        </p>
+      </div>
+    <div class="col-lg-12" id="task-show">
       <p>
-        <strong>User:</strong>
-        <%= @task.user_id %>
+        <strong>Tvoz:</strong>
+          <% if @task.audio_record? %>
+            <audio controls src="<%= url_for(@task.audio_record) %> "></audio>
+          <% else %>
+               <%= link_to 'Tvoz Audio', edit_task_path(@task), class: "btn btn-light" %> 
+          <% end %>
       </p>
     </div>
 
+    <div class="col-lg-12" id="task-show"> 
+      <p>
+        <strong>User:</strong>
+          <%= @task.user_id %>
+      </p>
+    </div>
     <div class="padding col-12 row justify-content-center">
       <% if current_user.role == "teacher" %>
         <div class="text-center">
-          <%= link_to 'Edit', edit_task_path(@task) %> |
-        </div>
-        <div class="text-center">
-          <%= link_to 'Back', tasks_path %> |
+          <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-light" %> 
         </div>
       <% end %>
+      <div class="text-center">
+        <%= link_to 'Back', tasks_path, class: "btn btn-info" %> 
+      </div>
       <div class="text-center row">
         <%= link_to community_user_path(current_user.id)  do %>
           <i class="fas fa-users">Community</i>

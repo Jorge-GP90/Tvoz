@@ -1,5 +1,15 @@
-<h1>New Task</h1>
+<div class="container-fluid padding" id="loggin-top">
+  <div class="row justify-content-center">
+    <div class="col-md-4" id="loggin-inner-top">  
+      <div class="form-group">
+        <h1>New Task</h1>
 
-<%= render 'form', task: @task %>
-
-<%= link_to 'Back', tasks_path %>
+        <%= render 'form', task: @task %>
+        
+        <div class="row text center">
+          <%= link_to 'Back', tasks_path, class: "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

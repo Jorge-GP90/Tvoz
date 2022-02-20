@@ -17,12 +17,9 @@
           <p class= "text-justify">Following:  <%= current_user.follower_user.count %> </p><br>
           <p class= "text-justify">Followers:  <%= current_user.followed_user.count %></p><br>
           
-          <%= button_to "follow", relationships_path(user_id: @user.id), method: :post, class: "btn btn-outline-primary show-btn" %>
           <div class="follow-part">
             <% unless current_user.id == @user.id %>
-            <span id="follow-part">
-              <%# <%= render 'relationships/follow', user: @user %> 
-            </span>
+              <%= button_to "follow", relationships_path(user_id: @user.id), method: :post, class: "btn btn-outline-primary show-btn" %>
             <% end %>
           </div>
           
@@ -104,7 +101,11 @@
               <th>Image</th>
               <th>Created by</th>
               <th>Task Id</th>
-              <th colspan="3">Homework</th>
+              <% if current_user.role == "teacher" %> 
+                <th colspan="3"></th>
+              <% else %>
+                <th colspan="3">Homework</th>
+              <% end %>
             </tr>
           </thead>
           <tbody>
@@ -120,12 +121,13 @@
                 <td><%= task.id %></td> 
                 <% if current_user.role == "teacher" %>
                   <td><%= link_to 'Show', task %></td>
-                  <td><%= link_to 'Edit', edit_task_path(task) %></td>
-                  <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <%# <% elsif current_user.connected?(task.user)%> 
-                <% else %>
-                  <td><%= link_to 'Tvoz', task %></td>
-                  <%# <td></td> %>
+                  <% if task.user.id == current_user.id %>
+                    <td><%= link_to 'Edit', edit_task_path(task) %></td>
+                    <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% end %>
+                <%# elsif current_user.connected?(task.user.id)%> 
+                <% elsif current_user.role == "student"  %>
+                  <td><%= link_to 'Tvoz', task  %></td>
                 <% end %>
               </tr>
             <% end %>

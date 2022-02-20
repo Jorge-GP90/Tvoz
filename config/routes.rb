@@ -13,11 +13,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :tasks do
-    member do
-      get 'student_show'
-    end
-  end
+  resources :tasks 
   resources :relationships, only: %i[create destroy connect]
 
 
