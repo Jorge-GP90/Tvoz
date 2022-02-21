@@ -2,8 +2,14 @@
 <div class="container-fluid padding justify-content-center" id="loggin-top">
   <p id="notice"><%= notice %></p>
   <div class="col-sm-6 col-md-8 col-lg-12 info-tag">
-    <span class="task-index justify-content-center">
+    <div class="task-index justify-content-center">
       <h1 class="text-center"><%= current_user.name%> Tasks</h1>
+      <%# <% if current_user.avatar.blank?%> 
+        <%# <img class="card-img-top img-thumbnail" src="/images/default_avatar.png"> %>
+      <%# <% else %> 
+        <%# <div class="card-img-top img-thumbnail" ><%= image_tag(current_user.avatar) %> 
+        <%# </div>   %>
+      <%# <% end %> 
       <% if current_user.role == "teacher" %>
         <%= link_to new_task_path, class: 'order-2 pr-2 bd-highlight' do %>
           <i class="fas fa-plus"> New Tvoz</i> |
@@ -12,7 +18,7 @@
       <%= link_to profile_user_path(current_user.id) do %>   
         <i class="fa-solid fa-user">Profile</i>
       <% end %>
-    </span> 
+    </div> 
   </div>
 </div>
 <div class="container-fluid padding" id="loggin-top">

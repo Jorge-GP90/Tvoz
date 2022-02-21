@@ -37,6 +37,15 @@
             <h5>No audio</h5>
           <% end %>
         </td>
+        <td>
+          <%= link_to 'Show', task_student_audio_path(student_audios.task.id, student_audios.id) %>
+        </td> 
+        <td>
+          <%#= link_to 'Edit', edit_task_student_audio_path(student_audios) %>
+        </td>
+        <td>
+          <%#= link_to 'Destroy', student_audios, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -44,16 +53,10 @@
 
 <br>
 
+<%#= link_to 'show student audio', task_student_audio_path(@student_audio) %>
+
 <%#= link_to 'New Student Audio', new_student_audio_path %>
-   <%# <td> %>
-      <%#= link_to 'Show', student_audios %>
-    <%# </td>  %>
-    <%# <td> %>
-      <%#= link_to 'Edit', edit_task_student_audio_path(student_audios) %>
-    <%# </td> %>
-    <%# <td> %>
-      <%#= link_to 'Destroy', student_audios, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%# </td> %>
+  
 
 
 

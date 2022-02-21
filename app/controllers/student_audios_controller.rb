@@ -9,6 +9,11 @@ class StudentAudiosController < ApplicationController
 
   # GET /student_audios/1 or /student_audios/1.json
   def show
+    @task = Task.find(params[:task_id])
+    @student_audio = StudentAudio.find(params[:id])
+    # @student_audio = @task.student_audio.find(params[:id])
+    @student_audio.user_id = current_user.id
+    
   end
 
   # GET /student_audios/new
@@ -57,7 +62,7 @@ class StudentAudiosController < ApplicationController
     @student_audio.destroy
 
     respond_to do |format|
-      format.html { redirect_to student_audios_url, notice: "Student audio was successfully destroyed." }
+      format.html { redirect_to task_student_audios_url, notice: "Student audio was successfully destroyed." }
       format.json { head :no_content }
     end
   end

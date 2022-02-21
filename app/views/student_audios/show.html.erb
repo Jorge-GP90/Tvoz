@@ -2,18 +2,42 @@
 
 <p>
   <strong>Audio student:</strong>
-  <%= @student_audio.audio_student %>
+  <%#= @student_audio.audio_student %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @student_audio.user_id %>
+  <%#= @student_audio.user_id %>
 </p>
 
 <p>
   <strong>Task:</strong>
-  <%= @student_audio.task_id %>
+  <%#= @student_audio.task_id %>
 </p>
 
-<%= link_to 'Edit', edit_student_audio_path(@student_audio) %> |
-<%= link_to 'Back', student_audios_path %>
+<%#= link_to 'Edit', edit_student_audio_path(@student_audio) %> |
+<%#= link_to 'Back', @student_audio_path %>
+
+
+<p><%= @student_audio.task.title %></p>
+<p>
+  <% if @student_audio.task.audio.attached? %>
+    <audio controls src="<%= url_for(@student_audio.task.audio) %> "></audio>
+  <% else %>
+    <h5>No audio</h5>
+  <% end %>
+</p>
+<p>
+  <% if @student_audio.task.image.attached? %>
+    <%= image_tag(@student_audio.task.image, id:'task-img') %>
+  <% else %>
+    <h5>No image</h5>
+  <% end %>  
+</p>
+<p>
+  <% if @student_audio.audio_student.attached? %>
+     <audio controls src="<%= url_for(@student_audio.audio_student) %> "></audio>
+  <% else %>
+    <h5>No audio</h5>
+  <% end %>
+</p>

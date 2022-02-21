@@ -2,4 +2,8 @@
 
 <%= render 'form', student_audio: @student_audio, task: @task %>
 
-<%= link_to 'Back', task_student_audios_path %>
+<%= link_to 'Back', task_student_audios_path %> |
+
+<%#= link_to 'show student audio', task_student_audio_path(@student_audio.task_id) %>
+<%= link_to 'Task list', tasks_path %>
+<%= link_to 'Task show', @task %>
