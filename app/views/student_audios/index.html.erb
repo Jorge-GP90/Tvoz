@@ -49,7 +49,7 @@
                 <td>
                   <%= link_to 'Show', task_student_audio_path(student_audios.task.id, student_audios.id), class: "btn btn-outline-primary show-btn" %>
                 </td> 
-                <% if current_user.role == "student" and current_user.student_audios.ids == current_user.id %>
+                <%# if current_user.role == "student" and current_user.student_audios.ids == current_user.id %>
                 <%# if current_user.id == @student_audio.id %>
 
                   <td>
@@ -58,7 +58,7 @@
                   <td>
                     <%= link_to 'Destroy', task_student_audio_path(student_audios.task.id, student_audios.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                   </td>
-                <% end %>
+                <%# end %>
               </tr>
             <% end %>
           </tbody>

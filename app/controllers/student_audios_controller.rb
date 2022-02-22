@@ -50,9 +50,9 @@ class StudentAudiosController < ApplicationController
     respond_to do |format|
       if @student_audio.update(student_audio_params)
         format.html { redirect_to task_student_audios_path, notice: "Student audio was successfully updated." }
-        format.json { render :index, status: :ok, location: @student_audio }
+        format.json { redirect_to :index, status: :ok, location: @student_audio }
       else
-        format.html { render :edit, status: :unprocessable_entity, notice: "could not update, try again" }
+        format.html { redirect_to :index, status: :unprocessable_entity, notice: "could not update, try again" }
         format.json { render json: @student_audio.errors, status: :unprocessable_entity }
       end
     end
