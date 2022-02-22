@@ -17,7 +17,6 @@ class Ability
 
     return unless user && user&.admin?
     
-    
     can :access, :rails_admin
     can :manage, :all
   end

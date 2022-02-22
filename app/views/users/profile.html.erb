@@ -118,11 +118,10 @@
 
 
 <%# My table task %>
-<%# if current_user.task_ids  ||  current_user.connected?(task.user) && (task.user).connected?(current_user) %>
-<%# if  current_user.connected?(@user.tasks) && (@user.tasks).connected?(current_user) %>
+
+<% if current_user.tasks.ids or current_user.connected?(@user) and @user.role == "teacher"  %>
   <div class="container-fluid padding" id="loggin-top">
     <div class="row justify-content-center">
-      
       <div class="col-lg-12" id="loggin-inner-top">
         <div class="table-responsive"> 
           <table class="table">
@@ -170,9 +169,12 @@
       </div>
     </div>
   </div>
-<%# end %>
+<% end %>
 
-<% if current_user.student_audios.ids == current_user.id %>
+<%# if current_user.student_audios.ids == current_user.id || (@user.role == "teacher" and @student_audios.task.user_id == @user.id ) %>
+<%# if (@user.role == "teacher")   and current_user.connected?(@user) || current_user.student_audios.ids == current_user.id   %>
+<%# if current_user.student_audios.user_id == current_user.id   %>
+<% if @student_audios.where(user_id: @user.id) ||  %>
 <%# if current_user.task_ids  ||  current_user.connected?(@task.user) && (@task.user).connected?(current_user) %>
   <div class="container-fluid padding" id="loggin-top">
     <div class="row justify-content-center">
@@ -183,6 +185,7 @@
             <thead>
               <tr class="text-center">
                 <th>Tvoz Number</th>
+                <th>Task created by</th>
                 <th>Tvoz audio</th>
                 <th>show</th>
                 <th colspan="2"></th>
@@ -193,6 +196,7 @@
               <% @student_audios.last(3).each do |student_audios| %>
                 <tr class="text-center">
                   <td><%= student_audios.task.id  %>
+                  <td><%= student_audios.task.user_id  %>
                   </td>
                   <td>
                     <% if student_audios.audio_student.attached? %>
