@@ -4,7 +4,8 @@ module.exports = {
       jquery: 'jquery/src/jquery',
       React: 'react',
       ReactDOM: 'react-dom',
-      Popper: 'popper.js'
+      Popper: 'popper.js',
+      rails_admin: 'rails_admin'
     }
   }
 }

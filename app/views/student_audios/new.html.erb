@@ -1,9 +1,22 @@
-<h1>New Student Audio</h1>
+<div class="container-fluid padding" id="loggin-top">
+  <div class="row justify-content-center">
+    <div class="col-md-4" id="loggin-inner-top">  
+      <div class="form-group">
+        <h1>New Student Audio</h1>
+        
+        <%= render 'form', student_audio: @student_audio, task: @task %>
+        
 
-<%= render 'form', student_audio: @student_audio, task: @task %>
-
-<%= link_to 'Back', task_student_audios_path %> |
-
-<%#= link_to 'show student audio', task_student_audio_path(@student_audio.task_id) %>
-<%= link_to 'Task list', tasks_path %>
-<%= link_to 'Task show', @task %>
+        <div class="row text center">
+          <div>
+            <%= link_to 'Back', task_student_audios_path, class: "btn btn-info"%> 
+            
+            <%#= link_to 'show student audio', task_student_audio_path(@student_audio.task_id) %>
+            <%= link_to 'Task list', tasks_path, class: "btn btn-info" %>
+            <%= link_to 'Task show', @task, class: "btn btn-info" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

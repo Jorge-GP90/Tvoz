@@ -31,7 +31,7 @@
 
 
 <%# ONLY TEACHERS %>
-<% if current_user.role == "teacher" %>
+<% if current_user.role == "teacher" and current_user.task_ids  ||  current_user.connected?(task.user) && (task.user).connected?(current_user) %>
   <div class="container-fluid padding" id="task-table-background">
     <div class="row justify-content-center">
       <div class="col-lg-12" id="task-inner-table">

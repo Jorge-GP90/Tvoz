@@ -14,6 +14,9 @@
   <strong>Task:</strong>
   <%#= @student_audio.task_id %>
 </p>
+<p>
+  <%= link_to 'audio index', task_student_audios_path %>
+</p>
 
 <%#= link_to 'Edit', edit_student_audio_path(@student_audio) %> |
 <%#= link_to 'Back', @student_audio_path %>
@@ -41,3 +44,4 @@
     <h5>No audio</h5>
   <% end %>
 </p>
+

@@ -4,7 +4,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    
     # if user.admin?
     #   can :access, :rails_admin
     #   can :manage, :all
@@ -15,11 +14,11 @@ class Ability
     #   can :manage, Task, user_id: user.id 
     #   can :read, :all
     # end
-      
+
     return unless user && user&.admin?
+    
+    
     can :access, :rails_admin
     can :manage, :all
-
   end
-
 end

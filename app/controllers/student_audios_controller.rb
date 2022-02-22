@@ -11,20 +11,21 @@ class StudentAudiosController < ApplicationController
   def show
     @task = Task.find(params[:task_id])
     @student_audio = StudentAudio.find(params[:id])
-    # @student_audio = @task.student_audio.find(params[:id])
     @student_audio.user_id = current_user.id
     
   end
 
   # GET /student_audios/new
   def new
-    # binding.pry
     @task = Task.find(params[:task_id])
     @student_audio = @task.student_audios.new
   end
 
   # GET /student_audios/1/edit
   def edit
+    @task = Task.find(params[:task_id])
+    @student_audio = StudentAudio.find(params[:id])
+    @student_audio.user_id = current_user.id
   end
 
   # POST /student_audios or /student_audios.json
@@ -48,10 +49,10 @@ class StudentAudiosController < ApplicationController
   def update
     respond_to do |format|
       if @student_audio.update(student_audio_params)
-        format.html { redirect_to task_student_audio_path(@student_audio), notice: "Student audio was successfully updated." }
-        format.json { render :show, status: :ok, location: @student_audio }
+        format.html { redirect_to task_student_audios_path, notice: "Student audio was successfully updated." }
+        format.json { render :index, status: :ok, location: @student_audio }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity, notice: "could not update, try again" }
         format.json { render json: @student_audio.errors, status: :unprocessable_entity }
       end
     end
@@ -59,6 +60,7 @@ class StudentAudiosController < ApplicationController
 
   # DELETE /student_audios/1 or /student_audios/1.json
   def destroy
+    
     @student_audio.destroy
 
     respond_to do |format|

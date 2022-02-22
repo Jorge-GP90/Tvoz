@@ -1,4 +1,4 @@
-<%= form_with(model: [task, @student_audio],  local: true, url: choose_url, method: choose_method) do |form| %>
+<%= form_with(model: [@task, @student_audio],  local: true, url: choose_url, method: choose_method) do |form| %>
   <% if student_audio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(student_audio.errors.count, "error") %> prohibited this student_audio from being saved:</h2>

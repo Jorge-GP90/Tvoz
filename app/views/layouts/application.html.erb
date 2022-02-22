@@ -15,18 +15,18 @@
 
   </head>
   <body>
-      <%= render "layouts/header" %>
-      <main>
-        <div class="flash_messages">
-          <% flash.each do |key, value| %>
-            <% key = 'info' if key == 'notice' %>
-            <% key = 'secondary' if key == 'alert' %>
-            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-          <% end %>
-        </div>
+    <%= render "layouts/header" %>
+    <div class="flash_messages">
+      <% flash.each do |key, value| %>
+        <% key = 'info' if key == 'notice' %>
+        <% key = 'secondary' if key == 'alert' %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+    </div>
+    <main id="loggin-top">
       <%= yield %>
-      </main>
-      <% if controller.controller_name == 'home' %>
+    </main>
+    <% if controller.controller_name == 'home' %>
       <footer>
         <div class="container-fluid padding">
           <div class="row text-center">
@@ -56,7 +56,7 @@
           </div>
         </div>
       </footer>
-      <% end %>
+    <% end %>
     <%= javascript_pack_tag 'tvoz' %> 
   </body>
 </html>

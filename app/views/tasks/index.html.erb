@@ -4,12 +4,6 @@
   <div class="col-sm-6 col-md-8 col-lg-12 info-tag">
     <div class="task-index justify-content-center">
       <h1 class="text-center"><%= current_user.name%> Tasks</h1>
-      <%# <% if current_user.avatar.blank?%> 
-        <%# <img class="card-img-top img-thumbnail" src="/images/default_avatar.png"> %>
-      <%# <% else %> 
-        <%# <div class="card-img-top img-thumbnail" ><%= image_tag(current_user.avatar) %> 
-        <%# </div>   %>
-      <%# <% end %> 
       <% if current_user.role == "teacher" %>
         <%= link_to new_task_path, class: 'order-2 pr-2 bd-highlight' do %>
           <i class="fas fa-plus"> New Tvoz</i> |
@@ -21,6 +15,7 @@
     </div> 
   </div>
 </div>
+
 <div class="container-fluid padding" id="loggin-top">
   <div class="row justify-content-center">
     <%= paginate @tasks %>
@@ -31,7 +26,7 @@
       <div class="table-responsive"> 
         <table class="table">
           <thead class="table-light">
-            <tr>
+            <tr class="text-center">
               <th>Title</th>
               <th>Image</th>
               <th>Created by</th>
@@ -45,25 +40,27 @@
           </thead>
           <tbody>
             <% @tasks.each do |task| %>
-              <tr>
-                <td><%= task.title %></td>
-                <% if task.image.variable? %>
-                  <td><%= image_tag(task.image, width: 70) %></td>
-                <% else %>
-                  <td> no image </td>
-                <% end %> 
-                <td><%= task.user.name %></td> 
-                <td><%= task.id %></td> 
-                <% if current_user.role == "teacher" %>
-                  <td><%= link_to 'Show', task %></td>
-                   <% if task.user.id == current_user.id %>
-                    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-                    <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if current_user.task_ids  ||  current_user.connected?(task.user) && (task.user).connected?(current_user) %>
+                <tr class="text-center">
+                  <td><%= task.title %></td>
+                  <% if task.image.variable? %>
+                    <td><%= image_tag(task.image, width: 70) %></td>
+                  <% else %>
+                    <td> no image </td>
+                  <% end %> 
+                  <td><%= task.user.name %></td> 
+                  <td><%= task.id %></td> 
+                  <% if current_user.role == "teacher" %>
+                    <td><%= link_to 'Show', task, class: "btn btn-outline-primary show-btn" %></td>
+                     <% if task.user.id == current_user.id %>
+                      <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-primary show-btn" %></td>
+                      <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%></td>
+                    <% end %>
+                  <% else %>
+                    <td><%= link_to 'Tvoz', task %></td>
                   <% end %>
-                <% else %>
-                  <td><%= link_to 'Tvoz', task %></td>
-                <% end %>
-              </tr>
+                </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
@@ -71,6 +68,7 @@
     </div>
   </div>
 </div>
+
 
 
  

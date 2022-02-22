@@ -4,8 +4,8 @@ module StudentAudiosHelper
             task_student_audios_path
         elsif action_name == 'edit'
             edit_task_student_audio_path
-        # elsif action_name == 'update'
-            # task_student_audio
+        elsif action_name == 'update'
+            task_student_audio
         # elsif action_name == 'show'
             # task_student_audio
         # elsif action_name == 'destroy'
@@ -20,8 +20,8 @@ module StudentAudiosHelper
             :get
         # elsif action_name == 'show'
         #     :get
-        # elsif action_name == 'udpate'
-        #     :patch
+        elsif action_name == 'udpate'
+            :patch
         # elsif action_name == 'destroy'
         #     :delete
         end

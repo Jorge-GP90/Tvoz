@@ -10,7 +10,7 @@
         <% if user_signed_in? %>
           <% if current_user.try(:admin?) %>
             <li class="nav-item active">
-              <%= button_to rails_admin_path, class: 'nav-link btn btn-outline-dark' do %>
+              <%= link_to rails_admin_path, class: 'nav-link btn btn-outline-dark' do %>
                 <i class="fas fa-user-cog"> Admin </i>
               <% end %>
             </li>
