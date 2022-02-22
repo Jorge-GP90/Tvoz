@@ -7,7 +7,7 @@
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import 'bootstrap';
-import '../stylesheets/application';
+import "../stylesheets/rails_admin.scss";
 
 
 require("@rails/ujs").start()
