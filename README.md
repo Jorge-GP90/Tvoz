@@ -23,7 +23,7 @@ DIC- [Graduation Assignment] Original Application / 卒業制作 オリジナル
 
 ## Technology outside the curriculum /カリキュラム外の技術
 
-* React
+* Active Storage
 
 
 
