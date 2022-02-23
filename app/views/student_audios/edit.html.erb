@@ -1,20 +1,14 @@
-<div class="container-fluid padding" id="loggin-top">
+<div class="container-fluid padding outer-box-style" >
   <div class="row justify-content-center">
-    <div class="col-md-4" id="loggin-inner-top">  
+    <div class="col-md-4 box-style-1">  
       <div class="form-group">
         <h1>Editing Student Audio</h1>
-        <%= render 'form', student_audio: @student_audio, task: @task %>
-
-        <div class="row text center">
-          <div class="ml-3">
-            <%= link_to 'Back', task_student_audios_path, class: "btn btn-info"%> 
-          </div>
-          <div class="ml-3">
-            <%= link_to 'Task list', tasks_path, class: "btn btn-info" %>
-          </div>
-          <div class="ml-3">
-            <%= link_to 'Task show', @task, class: "btn btn-info" %>
-          </div>
+          <%= render 'form', student_audio: @student_audio, task: @task %>
+          <ul class="links text center">
+            <li class="ml-3"><%= link_to 'Back', task_student_audios_path, class: "btn btn-info"%> </li>
+            <li class="ml-3"><%= link_to 'Task list', tasks_path, class: "btn btn-info" %></li>
+            <li class="ml-3"><%= link_to 'Task show', @task, class: "btn btn-info" %></li>
+          </ul>
         </div>
       </div>
     </div>

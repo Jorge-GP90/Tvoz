@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field text-center">
     <%= form.label :audio %>
     <%= form.file_field :audio_student %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-center row">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

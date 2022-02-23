@@ -25,6 +25,15 @@ html, body{
   color: #222;
 }
 
+.body-bg{
+    background: #f5683d;
+    z-index: 10;  
+}
+
+header{
+  margin-bottom: 100px;
+}
+
 
 .navbar{
     padding: .8rem;
@@ -75,3 +84,47 @@ animation: PuruPuru 2s forwards, fadeOut 10s linear forwards;
   }
 }
 
+.foot-app {
+  background-color: black;
+  height: 50px;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  margin-top: 300px;
+}
+
+.copyright{
+  padding: 10px 20px; 
+  text-align: center;
+}
+
+.outer-box-style{
+    background: #f5683d;
+    padding: 10vh 1vh;  
+}
+
+.box-style-1{
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px;
+    padding: 30px 30px;
+}
+
+.box-style-2{
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px;
+    padding: 5px 5px;
+}
+
+.box-style-3{
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px;
+    padding: 80px 80px;
+}
+
+.outer-box-style-2{
+    background: #f5683d;
+    padding: 10vh 1vh; 
+}

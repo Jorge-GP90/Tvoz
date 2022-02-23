@@ -26,7 +26,9 @@
       </div>
     <div class="col-lg-12" id="task-show">
       <p>
+      <% if current_user.role == "student" || current_user.admin %>
         <%= link_to 'Audio input', new_task_student_audio_path(@task.id), class: "btn btn-light" %> 
+      <% end %>
       </p>
     </div>
 

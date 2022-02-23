@@ -8,7 +8,7 @@ class TasksController < ApplicationController
   
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.select(:id, :title, :content, :image, :audio, :created_at, :user_id).order(created_at: :DESC).page.per(4)
+    @tasks = Task.select(:id, :title, :image, :audio, :created_at, :user_id).order(created_at: :DESC).page.per(4)
     @student_audios = StudentAudio.select(:audio_student)
   end
 
@@ -77,6 +77,6 @@ class TasksController < ApplicationController
   end
   # Only allow a list of trusted parameters through.
   def task_params
-    params.require(:task).permit(:title, :content, :image, :audio_student, :audio, :user_id, :created_at, :page)
+    params.require(:task).permit(:title, :image, :audio_student, :audio, :user_id, :created_at, :page)
   end
 end

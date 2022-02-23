@@ -1,11 +1,10 @@
-
-    
-<div class="container-fluid padding justify-content-center" id="loggin-top">
+<div class="container-fluid padding justify-content-center outer-box-style " >
   <p id="notice"><%= notice %></p>
-  <div class="col-sm-6 col-md-8 col-lg-12 info-tag">
+  <div class="col-sm-4 col-md-6 col-lg-12 info-tag">
     <span class="community-profile justify-content-center">
-      <h1 class="text-center">Hello <%= current_user.name%> !</h1>
-      <p> Meet the community and connect with all!</p> <br>
+      <h1 class="text-center">Hello <br><p><%= current_user.name%>!</p> </h1>
+      <p> Meet the community </p>
+      <p>and connect with all!</p> <br>
       <% if current_user.role == "teacher" %>
         <%= link_to new_task_path, class: 'order-2 pr-2 bd-highlight' do %>
           <i class="fas fa-plus"> New Tvoz</i> |
@@ -17,10 +16,8 @@
     </span> 
   </div>
 </div> 
-
-
 <div class="container-fluid padding justify-content-center" >  
-  <div class="table-responsive" id="loggin-inner-top">
+  <div class="table-responsive box-style-1">
     <h5><%= paginate @users, window: 2  %></h5>
     <table class="table">
       <thead class="table-dark">

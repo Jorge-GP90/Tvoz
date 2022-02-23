@@ -1,9 +1,9 @@
 
-<div class="container-fluid padding justify-content-center" id="loggin-top">
+<div class="container-fluid padding justify-content-center outer-box-style" >
   <p id="notice"><%= notice %></p>
   <div class="col-sm-6 col-md-8 col-lg-12 info-tag">
     <div class="task-index justify-content-center">
-      <h1 class="text-center"><%= current_user.name%> Tasks</h1>
+      <h1 class="text-center"><%= current_user.name%><br> Tasks</h1>
       <% if current_user.role == "teacher" %>
         <%= link_to new_task_path, class: 'order-2 pr-2 bd-highlight' do %>
           <i class="fas fa-plus"> New Tvoz</i> |
@@ -16,12 +16,12 @@
   </div>
 </div>
 
-<div class="container-fluid padding" id="loggin-top">
+<div class="container-fluid padding outer-box-style" >
   <div class="row justify-content-center">
-    <%= paginate @tasks %>
-    <div class="col-lg-12" id="loggin-inner-top">
+    <%#= paginate @tasks %>
+    <div class="col-lg-12 box-style-1" >
       <div class="justify-content-center">
-        <h5><%= paginate @tasks %></h5>
+        <h5><%#= paginate @tasks %></h5>
       </div>
       <div class="table-responsive"> 
         <table class="table">
@@ -40,7 +40,7 @@
           </thead>
           <tbody>
             <% @tasks.each do |task| %>
-              <% if current_user.task_ids  ||  current_user.connected?(task.user) && (task.user).connected?(current_user) %>
+              <% if task.user.id == current_user.id ||  current_user.connected?(task.user) && (task.user).connected?(current_user) %>
                 <tr class="text-center">
                   <td><%= task.title %></td>
                   <% if task.image.variable? %>
@@ -50,7 +50,7 @@
                   <% end %> 
                   <td><%= task.user.name %></td> 
                   <td><%= task.id %></td> 
-                  <% if current_user.role == "teacher" %>
+                  <% if current_user.role == "teacher" && task.user.id %>
                     <td><%= link_to 'Show', task, class: "btn btn-outline-primary show-btn" %></td>
                      <% if task.user.id == current_user.id %>
                       <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-primary show-btn" %></td>

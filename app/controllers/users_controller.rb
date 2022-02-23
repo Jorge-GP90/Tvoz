@@ -21,12 +21,6 @@ class UsersController < ApplicationController
       @followed = current_user.follower.includes(:followed).order(created_at: :DESC)
       @follower = current_user.followed.includes(:follower).order(created_at: :DESC)
       @student_audios = StudentAudio.select(:id, :audio_student, :task_id, :created_at, :user_id).order(created_at: :DESC).page.per(3)
-      # @task = Task.find(params[:task_id])
-      # @student_audios = @task.student_audio.select(:id, :audio_student, :user_id, :created_at, :user_id).order(created_at: :DESC).page.per(3)
-      # @task = Task.find(params[:task_id])
-      # @student_audio = StudentAudio.find(params[:id])
-      # @student_audio.user_id = StudentAudio.find(params [:user_id])
-      # @student_audio = @task.student_audios.all
     else
       redirect_to tasks_path
     end

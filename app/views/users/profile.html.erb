@@ -1,8 +1,8 @@
 <%# <h1>Profile</h1> %>
 
-<div class="container-fluid padding" id="loggin-top">
+<div class="container-fluid padding outer-box-style">
   <div class="row justify-content-center">
-    <div class="col-md-4" id="loggin-inner-top">
+    <div class="col-md-4 box-style-1" >
       <div class="card">
         <% if current_user.avatar.blank?%>
           <img class="card-img-top" src="/images/default_avatar.png">
@@ -37,20 +37,20 @@
 <%# Follows table %>
 
 
-    <div class="container-fluid padding" id="loggin-top">
+    <div class="container-fluid padding outer-box-style">
       <div class="row padding">
-        <div class="col-md-4" id="loggin-inner-top">
+        <div class="col-md-4 box-style-1">
           <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">My Followers Id</h4>
+            <div class="card-body text-center">
+              <h4 class="card-title">My last Followers Id</h4>
               <div class="table-responsive"> 
                 <table class="table">
                   <tbody class="table-light">
                     <% current_user.follower_user.last(2).each do |rel| %>
-                      <tr>
-                        <td clas="card-text">Follower id <br> <%= rel.id %></td>
-                        <td clas="card-text">Name <br><%= rel.name %></td>
-                        <td clas="card-text">Role <br><%= rel.role %></td>
+                      <tr class="text-center">
+                        <td class="card-text">Follower id <br> <%= rel.id %></td>
+                        <td class="card-text">Name <br><%= rel.name %></td>
+                        <td class="card-text">Role <br><%= rel.role %></td>
                       </tr>
                     <% end %>
                   </tbody>
@@ -59,15 +59,15 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4" id="loggin-inner-top">
+        <div class="col-md-4 box-style-1" >
           <div class="card">
-            <div class="card-body">
-              <h4 class="card-title"> My follow id </h4>
+            <div class="card-body text-center">
+              <h4 class="card-title"> My last following id </h4>
               <div class="table-responsive"> 
                 <table class="table">
                   <tbody class="table-light">
-                    <% current_user.follower.last(2).each do |rel| %>
-                      <tr>
+                    <% current_user.followed.last(2).each do |rel| %>
+                      <tr class="text-center">
                         <td clas="card-text"><%= rel.id %></td>
                       </tr>
                     <% end %>
@@ -77,37 +77,40 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4" id="loggin-inner-top">
-          <div class="card">
-            <% if current_user && current_user.role == "student" || current_user.admin %>
-              <div class="card-body">
+        <div class="col-md-4 box-style-1">
+          <div class="card text-center" >
+            <% if current_user.role == "student"  || current_user.admin %>
+              <div class="card-body text-center">
                 <h4 class="card-title"> My Tvoz audios </h4>
                 <div class="table-responsive"> 
-                <table class="table">
+                <table class="table text-center">
                   <tbody class="table-light">
-                      <tr>
+                      <tr class="text-center">
                         <td clas="card-text">
-                         <%#= @student_audios.user_id.audio_student.count %>
-                        </td>
+                         <%= current_user.student_audios.count %></td>
                       </tr>
                   </tbody>
                 </table>
               </div>
             <% elsif current_user.role == "teacher" || current_user.admin %>  
-              <div class="card-body">
-                <h4 class="card-title"> Tvoz audios </h4>
+              <div class="card-body ">
+                <h4 class="card-title"> Tvoz </h4>
                 <div class="table-responsive"> 
-                <table class="table">
+                <table class="table text-center">
                   <tbody class="table-light">
-                    <tr>
-                      <td clas="card-text"> </td>
+                    <tr class="text-center">
+                      <td clas="card-text"><%= current_user.tasks.count %></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             <% end %>
-            <% if current_user.task_ids  ||  current_user.connected?(@task.user) && (@task.user).connected?(current_user) and current_user.student_audios.ids == current_user.id %>
+            <% if current_user.student_audios.present?  || current_user.admin %>
               <%= link_to task_student_audios_path(:task_id), type: "button", class:"btn btn-outline-secondary"  do %> 
+                Index
+              <% end %> 
+            <% else %>
+              <%= link_to tasks_path, type: "button", class:"btn btn-outline-secondary "  do %> 
                 Index
               <% end %> 
             <% end %> 
@@ -119,10 +122,10 @@
 
 <%# My table task %>
 
-<%#if current_user.tasks.ids or current_user.connected?(@user) and @user.role == "teacher"  %>
-  <div class="container-fluid padding" id="loggin-top">
+
+  <div class="container-fluid padding outer-box-style" >
     <div class="row justify-content-center">
-      <div class="col-lg-12" id="loggin-inner-top">
+      <div class="col-lg-12 box-style-1">
         <div class="table-responsive"> 
           <table class="table">
             <thead class="table-light">
@@ -139,9 +142,9 @@
               </tr>
             </thead>
             <tbody>
-              <%= paginate @tasks %>
+              <%#= paginate @tasks %>
               <% @tasks.last(3).each do |task| %>
-                <% if current_user.task_ids  ||  current_user.connected?(task.user) && (task.user).connected?(current_user) %>
+                <% if task.user.id == current_user.id ||  current_user.connected?(task.user) && (task.user).connected?(current_user) %>
                   <tr class="text-center">
                     <td><%= task.title %></td>
                     <% if task.image.variable? %>
@@ -169,54 +172,52 @@
       </div>
     </div>
   </div>
-<%# end %>
 
-<%# if current_user.student_audios.ids == current_user.id || (@user.role == "teacher" and @student_audios.task.user_id == @user.id ) %>
-<%# if (@user.role == "teacher")   and current_user.connected?(@user) || current_user.student_audios.ids == current_user.id   %>
-<%# if current_user.student_audios.user_id == current_user.id   %>
-<%# if @student_audios.where(user_id: @user.id) ||  %>
-<%# if current_user.task_ids  ||  current_user.connected?(@task.user) && (@task.user).connected?(current_user) %>
-  <div class="container-fluid padding" id="loggin-top">
+
+  <div class="container-fluid padding outer-box-style" >
     <div class="row justify-content-center">
       
-      <div class="col-lg-12" id="loggin-inner-top">
+      <div class="col-lg-12 box-style-1" >
         <div class="table-responsive"> 
           <table class="table">
             <thead>
               <tr class="text-center">
                 <th>Tvoz Number</th>
-                <th>Task created by</th>
+                <th>Tvoz created by</th>
+                <th>From Task Number</th>
                 <th>Tvoz audio</th>
                 <th>show</th>
                 <th colspan="2"></th>
               </tr>
             </thead>
             <tbody>
-              <%= paginate @student_audios %>
+              <%#= paginate @student_audios %>
               <% @student_audios.last(3).each do |student_audios| %>
-                <tr class="text-center">
-                  <td><%= student_audios.task.id  %>
-                  <td><%= student_audios.task.user_id  %>
-                  </td>
-                  <td>
-                    <% if student_audios.audio_student.attached? %>
-                       <audio controls src="<%= url_for(student_audios.audio_student) %> "></audio>
-                    <% else %>
-                      <h5>No audio</h5>
+                <% if student_audios.user.id == current_user.id ||  current_user.connected?(student_audios.user) && (student_audios.user).connected?(current_user) %>
+                  <tr class="text-center">
+                    <td><%= student_audios.task.id  %>
+                    <td><%= student_audios.user.name  %></td>
+                    <td><%= student_audios.task.user_id  %></td>
+                    <td>
+                      <% if student_audios.audio_student.attached? %>
+                         <audio controls src="<%= url_for(student_audios.audio_student) %> "></audio>
+                      <% else %>
+                        <h5>No audio</h5>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= link_to 'Show', task_student_audio_path(student_audios.task.id, student_audios.id), class: "btn btn-outline-primary show-btn" %>
+                    </td> 
+                    <% if current_user.role == "student" && student_audios.user.id == current_user.id || current_user.admin %>
+                      <td>
+                        <%= link_to 'Edit', edit_task_student_audio_path(student_audios.task.id, student_audios.id), class: "btn btn-outline-primary show-btn" %>
+                      </td>
+                      <td>
+                        <%= link_to 'Destroy', task_student_audio_path( student_audios.task.id, student_audios.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                      </td>
                     <% end %>
-                  </td>
-                  <td>
-                    <%= link_to 'Show', task_student_audio_path(student_audios.task.id, student_audios.id), class: "btn btn-outline-primary show-btn" %>
-                  </td> 
-                  <% if current_user.role == "student" %>
-                    <td>
-                      <%= link_to 'Edit', edit_task_student_audio_path(student_audios.task.id, student_audios.id), class: "btn btn-outline-primary show-btn" %>
-                    </td>
-                    <td>
-                      <%= link_to 'Destroy', task_student_audio_path( student_audios.task.id, student_audios.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-                    </td>
-                  <% end %>
-                </tr>
+                  </tr>
+                <% end %>
               <% end %>
             </tbody>
           </table>
@@ -233,7 +234,15 @@
 
 <br>
 
-
-<%= link_to 'Edit Account', edit_user_registration_path(current_user.id) %> |
-<%= link_to 'community', community_user_path(current_user.id) %> | 
-<%= link_to 'Home', root_path %>
+<div class="container-fluid padding" >
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center box-style-2" >
+      <%= link_to edit_user_registration_path(current_user.id), class: ' btn btn-outline-dark' do %>
+      <i class="fa-solid fa-user"> Edit</i> 
+      <% end %>
+      <%= link_to community_user_path(current_user.id), class: ' btn btn-outline-dark' do %> 
+      <i class="fas fa-users"> </i>
+      <% end %>
+    </div>
+  </div>
+</div>

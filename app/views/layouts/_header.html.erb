@@ -14,11 +14,6 @@
                 <i class="fas fa-user-cog"> Admin </i>
               <% end %>
             </li>
-            <li class="nav-item active">
-            <%= button_to destroy_user_session_path(current_user.id), method: :delete, class: 'nav-link btn btn-outline-dark' do %>
-              <i class="fas fa-sign-out-alt"> Logout</i>
-            <% end %>
-            </li>
           <% end %> 
            <% if current_user.role == "teacher" %> 
             <li class="nav-item active">
