@@ -25,9 +25,10 @@ end
     password = 'password'
     # avatar = File.open("#{Rails.root}/public/images/default_avatar.png")
     role = 'teacher'
-    # title = 'ABC...'
-    # image = File.open("#{Rails.root}/public/images/A.jpeg") 
-    # audio = File.open("#{Rails.root}/public/audio/A.m4a") 
+    title = 'ABC...'
+    # image = File.open(Rails.root.join('public/images/A.jpeg') )
+    # audio = File.open(Rails.root.join('public/audio/A.m4a'))
+    userid = "#{16+n}"
 
     User.create!(name: name,
                  email: email,
@@ -35,10 +36,11 @@ end
                 #  avatar: avatar,
                  role: role)
     
-    # Task.create!(title: title,
-    #              image: image,
-    #              audio: audio 
-    #              )
+    Task.create!(title: title,
+                #  image: image,
+                #  audio: audio, 
+                 user_id: userid
+                 )
     
     
 end
