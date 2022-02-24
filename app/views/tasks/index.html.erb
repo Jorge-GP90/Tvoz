@@ -1,6 +1,5 @@
 
 <div class="container-fluid padding justify-content-center outer-box-style" >
-  <p id="notice"><%= notice %></p>
   <div class="col-sm-6 col-md-8 col-lg-12 info-tag">
     <div class="task-index justify-content-center">
       <h1 class="text-center"><%= current_user.name%><br> Tasks</h1>
@@ -54,7 +53,7 @@
                     <td><%= link_to 'Show', task, class: "btn btn-outline-primary show-btn" %></td>
                      <% if task.user.id == current_user.id %>
                       <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-primary show-btn" %></td>
-                      <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%></td>
+                      <td><%= button_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%></td>
                     <% end %>
                   <% else %>
                     <td><%= link_to 'Tvoz', task %></td>
