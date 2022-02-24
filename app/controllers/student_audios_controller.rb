@@ -1,4 +1,5 @@
 class StudentAudiosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_student_audio, only: %i[ show edit update destroy ]
   before_action :set_task, only: %i[ new create show edit update ]
 

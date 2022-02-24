@@ -11,7 +11,7 @@
           <% if @task.audio.attached? %>
             <audio controls src="<%= url_for(@task.audio) %> "></audio>
           <% else %>
-            <audio controls src="<%= url_for(@task.audio) %> ">No audio</audio>
+            <p>No audio</p>
           <% end %>    
         </p>
       </div>
@@ -47,11 +47,6 @@
         <% end %>
         <div class="text-center m-2 ">
           <%= link_to 'Back', tasks_path, class: "btn btn-info" %> 
-        </div>
-        <div class="text-center m-2  ">
-          <%= link_to community_user_path(current_user.id), class: "btn btn-light show-btn"  do %>
-            <i class="fas fa-users">Community</i>
-          <% end %>
         </div>
       </div>
     </div>
