@@ -31,7 +31,7 @@ html, body{
 }
 
 header{
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 
 
@@ -47,7 +47,7 @@ header{
 
 .alert {
 position: fixed;
-top: 100px;
+top: 80px;
 right: 0;
 margin-right: 15px;
 margin-bottom: 0;
