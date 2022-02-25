@@ -34,7 +34,7 @@ gem 'dotenv-rails'
 # Users:Teachers & Students
 gem 'devise'
 #Adding /Admin  managemnet screen control
-gem 'rails_admin', ['>= 3.0.0.rc', '< 4']
+gem 'rails_admin', '~> 2.0'
 #Access to Managemnet Screen
 gem 'cancancan'
 # RSpec
