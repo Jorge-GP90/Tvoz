@@ -15,7 +15,8 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import "rails_admin/src/rails_admin/base";
-import "../stylesheets/rails_admin.scss";
-// require("jquery");
-// require("bootstrap");
+require("jquery");
+require("bootstrap");
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
