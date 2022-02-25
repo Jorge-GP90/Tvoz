@@ -6056,10 +6056,10 @@ querystringify@^2.1.1:
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.2.0.tgz#3345941b4153cb9d082d8eee4cda2016a9aef7f6"
   integrity sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==
 
-rails_admin@3.0.0-rc:
-  version "3.0.0-rc"
-  resolved "https://registry.yarnpkg.com/rails_admin/-/rails_admin-3.0.0-rc.tgz#2d0c640a7b112d6e88b8820dc96345488a9e10fc"
-  integrity sha512-XliWuLYHjE1DuabCS3W1RHfn8JKEJdVL+96IbNiKMVQg/gcHvjuXHM+eM4qUUNVrentfvz5lVuLXmjlYmOfzPQ==
+rails_admin@3.0.0-rc2:
+  version "3.0.0-rc2"
+  resolved "https://registry.yarnpkg.com/rails_admin/-/rails_admin-3.0.0-rc2.tgz#ac47eb8ddf9c2c742cef44ba13d4f020c3aee761"
+  integrity sha512-up2PBVFwMnCAb5BepSuTmKp6KEemKznltmsbrf0/D4dC8FL+EZhF7pmZrCbJWZNBZj0l360/iwbWMHXIStZNtQ==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@fortawesome/fontawesome-free" "^5.15.4"
