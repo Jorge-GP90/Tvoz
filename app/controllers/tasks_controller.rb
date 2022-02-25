@@ -8,7 +8,7 @@ class TasksController < ApplicationController
   
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.select(:id, :title, :image, :audio, :created_at, :user_id).order(created_at: :DESC).page.per(4)
+    @tasks = Task.select(:id, :title, :image, :audio, :created_at, :user_id).order(created_at: :DESC).page.per(10)
     @student_audios = StudentAudio.select(:audio_student)
   end
 

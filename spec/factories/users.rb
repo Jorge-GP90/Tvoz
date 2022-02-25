@@ -5,7 +5,6 @@ FactoryBot.define do
     password { 'password' }
     role { 'teacher' }
     admin { false }
-
   end
   factory :user02, class: User do
     name { 'user02' }
@@ -13,7 +12,13 @@ FactoryBot.define do
     password { 'password' }
     role { 'student' }
     admin { false }
-
+  end
+  factory :user03, class: User do
+    name { 'user03' }
+    email { 'user03@mail.com' }
+    password { 'password' }
+    role { 'teacher' }
+    admin { false }
   end
   factory :admin_user, class: User do
     name { 'admin' }

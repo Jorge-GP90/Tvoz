@@ -3,4 +3,5 @@ class Task < ApplicationRecord
   has_many :student_audios, dependent: :destroy
   has_one_attached :audio
   has_one_attached :image
+  validates :title, presence: true
 end

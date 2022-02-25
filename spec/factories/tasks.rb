@@ -3,14 +3,21 @@ FactoryBot.define do
     title { 'title 1 ' }
     audio { '' }
     image { '' }
-    audio_record { '' }
     association :user
-  end
-  factory :second_task, class: Task do
-    title { 'title 2 ' }
+  end  
+  factory :task_audio do
+    title { 'audio' }
+    audio { './storage/test_audio.m4a' }
+    image {  '' }
+    association :user
+  end  
+  factory :task_image do
+    title { 'Image' }
     audio { '' }
-    image { '' }
-    audio_record { '' }
+    after(:build) do |attached|
+      attached.image.attach(io: File.open(Rails.root.join('spec', 'factories', 'images', 'test2.jpg')), filename: 'test2.jpg', content_type: 'image/jpg')
+    end
+    # image { './storage/test2.jpg' }
     association :user
   end
   
