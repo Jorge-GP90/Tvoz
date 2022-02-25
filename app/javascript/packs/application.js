@@ -15,4 +15,7 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log('Hello World from Webpacker')
+import "rails_admin/src/rails_admin/base";
+import "../stylesheets/rails_admin.scss";
+// require("jquery");
+// require("bootstrap");

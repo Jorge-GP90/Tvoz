@@ -6,8 +6,8 @@ RailsAdmin.config do |config|
   ## == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :user
-    flash[:warning] = "The page you were looking for could not be found."
-    redirect_to main_app.root_path unless current_user.admin?
+    flash[:warning] = 'admin user not found'
+    redirect_to root_path unless current_user.admin?
   end
   config.current_user_method(&:current_user)
 
