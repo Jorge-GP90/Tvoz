@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :student_audio do
     audio_student { nil }
-    user { nil }
-    task { nil }
+    # user { nil }
+    # task { nil }
     association :user
     association :task
   end

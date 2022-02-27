@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_user, only: %i[show profile community]
+  # before_action :authenticate_user!
+  # before_action :set_user, only: %i[show profile community]
 
 
   def show
