@@ -28,13 +28,14 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'bootstrap', '~> 5.0.2'
 
 #ENV
 gem 'dotenv-rails'
 # Users:Teachers & Students
 gem 'devise'
 #Adding /Admin  managemnet screen control
-# gem 'rails_admin', ['>= 3.0.0.rc2', '< 4']
+gem 'rails_admin', ['>= 3.0.0.rc2', '< 4']
 #Access to Managemnet Screen
 gem 'cancancan'
 # RSpec
@@ -92,3 +93,4 @@ gem 'faker'
 
 #AWS S3
 gem "aws-sdk-s3", require: false
+gem 'sassc-rails'
