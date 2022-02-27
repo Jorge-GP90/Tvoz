@@ -1,26 +1,58 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-#   describe 'Validation' do
-#     context 'Task with empty title' do
-#       it 'Getting Validation  ' do
-#         empty_task_name = Task.new(task_name: '', description: 'Empty Task Name')
-#         expect(empty_task_name).not_to be_valid
-#       end
-#     end
-#     context 'Task with empty description' do
-#       it 'Validation is caught' do
-#         empty_description = Task.new(task_name: 'Empty description', description: '')
-#         expect(empty_description).not_to be_valid
-#       end
-#     end
-#     context 'If the task Title and details are described' do
-#       it 'Validation passes' do
-#         task = Task.new(task_name: 'Task name', description: 'Task description')
-#         expect(task).to be_valid
-#       end
-#     end
-#   end
+  describe 'Task Validation' do
+    context 'Task with empty title' do
+      it 'Validation title does not exist' do
+        empty_title = FactoryBot.build(:task, title: nil)
+        expect(empty_title).not_to be_valid
+      end
+    end
+    context 'Task with title' do
+      it 'Validation pass' do
+        task_title = FactoryBot.build(:task, title: 'I have a title')
+        expect(task_title).to be_valid
+      end
+    end
+  end
 
+  describe "Upload files" do
+    context "No image attached " do    
+      it "No image is attached" do   
+        @task= FactoryBot.build(:task, title: 'Testing', image: nil, audio: nil)     
+        expect(@task.image).not_to be_attached
+      end
+    end
 
+    context "image attached " do  
+      it "Has one image attached" do        
+        @task= FactoryBot.build(:task)
+        @task.image.attach(
+          io: File.open(Rails.root.join('spec', 'factories', 'images', 'test.jpeg')),
+          filename: 'test.jpeg',
+          content_type: 'image/jpeg'
+        )         
+        expect(@task.image).to be_attached
+      end
+    end
+
+    context "No audio attached " do    
+      it "No audio is attached" do        
+        @task= FactoryBot.build(:task, title: 'Testing', audio: nil)    
+        expect(@task.audio).not_to be_attached
+      end
+    end
+
+    context "No audio attached " do    
+      it "No audio is attached" do        
+        @task= FactoryBot.build(:task)
+        @task.audio.attach(
+          io: File.open(Rails.root.join('spec', 'factories', 'audios', 'test_audio.m4a')),
+          filename: 'test_audio.m4a',
+          content_type: 'audio/m4a'
+        )    
+        expect(@task.audio).to be_attached
+      end
+    end  
+  end
 end

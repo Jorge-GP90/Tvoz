@@ -12,7 +12,7 @@ gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+# gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -28,13 +28,14 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'bootstrap', '~> 5.0.2'
 
 #ENV
 gem 'dotenv-rails'
 # Users:Teachers & Students
 gem 'devise'
 #Adding /Admin  managemnet screen control
-gem 'rails_admin', ['>= 3.0.0.rc', '< 4']
+gem 'rails_admin', ['>= 3.0.0.rc2', '< 4']
 #Access to Managemnet Screen
 gem 'cancancan'
 # RSpec
@@ -79,8 +80,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-#react 
-gem 'react-rails'
 
 #Image Upload
 gem 'mini_magick'
@@ -94,3 +93,4 @@ gem 'faker'
 
 #AWS S3
 gem "aws-sdk-s3", require: false
+gem 'sassc-rails'

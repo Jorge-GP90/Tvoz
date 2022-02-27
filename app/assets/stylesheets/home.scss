@@ -5,20 +5,63 @@
 .carousel-inner img {
     width: 100%;
     height: 100%;
+    margin: auto;
 }
 .carousel-caption {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
+.carousel-caption h1 {
+    font-size: 500%;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px #000;
+}
+.carousel-caption h3 {
+    font-size: 200%;
+    font-weight: 500;
+    text-shadow: 1px 1px 10px #000;
+    padding-bottom: 1rem;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+#jumbotron-bg {
+    background-color: #f3e6e8;
+    background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%);
+}
+
+#second-section {
+  background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  color: #fff;
+  text-shadow: 1px 1px 10px #000;
+  padding-bottom: 1rem;
+
+}
+
+.padding {
+  padding-bottom: 2rem;
+}
+
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+.welcome hr {
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+}
 
 
-
-
-
-
-
-
+#fa-users, #fa-user-plus, #fa-sign-in-alt {
+  font-size: 4rem;
+  color: #fff;
+}
 
 
 
@@ -76,6 +119,23 @@ figure {
     padding: 1rem;
 }
 
+.image-shadow{
+  // border
+  box-shadow: 1px 1px 15px #000;
+}
 
+#outer-box-signup-login {
+  background-color: #563d7c;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
 
+.three-column {
+  background-color: #f3e6e8;
+  background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%);
+} 
 
+.outer-box-bg {
+  background-color: #563d7c;
+  color: #fff;
+}

@@ -1,15 +1,20 @@
 RailsAdmin.config do |config|
-  config.asset_source = :webpacker
+  config.asset_source = :sprockets
 
   ### Popular gems integration
 
   ## == Devise ==
+  # config.authenticate_with do
+  #   warden.authenticate! scope: :user
+  # end
+  # config.current_user_method(&:current_user)
   config.authenticate_with do
     warden.authenticate! scope: :user
     flash[:warning] = "The page you were looking for could not be found."
     redirect_to main_app.root_path unless current_user.admin?
   end
   config.current_user_method(&:current_user)
+
 
   ## == CancanCan ==
   config.authorize_with :cancancan

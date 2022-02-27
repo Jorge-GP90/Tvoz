@@ -31,7 +31,7 @@ html, body{
 }
 
 header{
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 
 
@@ -43,9 +43,11 @@ header{
 }
 
 
+
+
 .alert {
 position: fixed;
-top: 100px;
+top: 80px;
 right: 0;
 margin-right: 15px;
 margin-bottom: 0;
@@ -98,9 +100,14 @@ animation: PuruPuru 2s forwards, fadeOut 10s linear forwards;
   text-align: center;
 }
 
+.main-box{
+  margin: 0;
+  background: #fff;
+}
+
 .outer-box-style{
     background: #f5683d;
-    padding: 10vh 1vh;  
+    padding: 10vh 1vh;
 }
 
 .box-style-1{
@@ -128,3 +135,4 @@ animation: PuruPuru 2s forwards, fadeOut 10s linear forwards;
     background: #f5683d;
     padding: 10vh 1vh; 
 }
+

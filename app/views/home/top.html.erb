@@ -1,6 +1,3 @@
-
-
-    
     <%# Image Slides %>
     <div id="slides" class="carousel slide" data-ride="carousel">  
       <ul class="carousel-indicators">
@@ -10,204 +7,84 @@
       </ul>
       <div class="carousel-inner">
         <div class="carousel-item active ">
-          <img src="/images/background.png" clas="img-responsive">
-          <%# <%= image_tag("/images/marketing.png", class: "img-responsive") %> 
+          <img src="/images/h_purple_background.jpg" clas="img-responsive">
           <div class="carousel-caption">
             <h1 class="display-2">Tvoz</h1>
             <h3>Welcome to speaking practice</h3>
-            <button type="button" class="btn btn-outline-light btn-lg">  VIEW DEMO </button>
-            <button type="button" class="btn btn-primary btn-lg">Get Started</button>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="/images/marketing2.png" clas="img-responsive">
-          <%# <%= image_tag("/images/marketing2.png", class: "img-responsive") %> 
+          <img src="/images/sound.jpg" clas="img-responsive">
         </div>
         <div class="carousel-item">
-          <%= image_tag("/images/marketing.png", class:"img-responsive")  %>
+          <%= image_tag("/images/woman-speaking.png", class:"img-responsive")  %>
         </div>
       </div>
     </div>
-
-<%# jumbotron %>
-    <div class="container-fluid padding">
-       <div class="row jumbotron">
-          <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-            <p class="lead">The follow! method changes the id of the user 
-            instance sent as an argument into thefollowed_id P 
-            column of the Relationship instance and saves itself.</p>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-            <%= link_to "#", class: 'btn btn-outline-secondary btn-lg', type: 'button' do %> 
-              <i class="fas fa-users">Community</i>   
-            <% end %> 
-          </div>
-       </div>
-    </div>
     <%# Second section  %>
-    <div class="container-fluid padding">
+    <div class="container-fluid padding" id="second-section">
        <div class="row welcome text-center">
           <div class="col-12">
-            <h1 class="display-4">Speak freely</h1>
+            <h1 class="display-4"><em>Step by Step, Word by Word.</em></h1>
             <hr>
             <div class="col-12">
-              <p class="lead">he follow! method changes the id of the user 
-            instance sent as an argument into thefollowed_id P</p>
+              <p class="lead">A tool for every Professor or Speach Therapist  that wants to help improving their students pronunciation </p>
             </div>
           </div>
        </div>
     </div>
 
 <%# Three column Section %>
-
-
-
-    <div class="container-fluid padding">
+    <div class="container-fluid padding outer-box-bg" >
       <div class="row text-center padding">
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <i class="fas fa-users"></i>
+          <i class="fas fa-users" id="fa-users"></i>
           <h3>Community</h3>
-          <p>he follow! method changes the id of the user 
-         instance sent as an argument</p>
+          <p>Join the professors community and help more students. </p>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <i class="fas fa-user-plus"></i>
+          <i class="fas fa-user-plus" id="fa-user-plus"></i>
           <h3>Tvoz</h3>
-          <p>he follow! method changes the id of the user 
-          instance sent as an argument</p>
+          <p>Create and share as much as you like.</p>
         </div>
         <div class="col-xs-12 col-md-4">
-          <i class="fas fa-sign-in-alt"></i>
+          <i class="fas fa-sign-in-alt" id="fa-sign-in-alt"></i>
           <h3>Try yourselt</h3>
-          <p>he follow! method changes the id of the user 
-          instance sent as an argument</p>
+          <p>Invite your own students to join and keep the practice constant,</p>
+          <p>make them better everyday.</p>
+          <p>Speak freely </p>
         </div>
       </div>
-      <hr class="my-4">
     </div>
 
 <%# Two column section  %>
-    <div class="container-fluid padding">
+    <div class="container-fluid padding outer-box-bg">
       <div class="row padding">
-        <div class="col-md-12 col-lg-6">
-          <h2>Tvoz testing</h2>
-          <p>
-          he follow! method changes the id of the user instance sent as an argument
-          </p>
-          <p>
-          he follow! method changes the id of the user instance sent as an argument
-          </p>
-          <button type="button" class="btn btn-primary">Learn More</button>
+        <div class=" col-md-12 col-lg-6 text-center">
+          <%= image_tag("/images/guy2-speaking.png",  class: 'img-fluid image-shadow') %> 
         </div>
         <div class="col-lg-6">
-          <%= image_tag("/images/teaching.png", class: 'img-fluid') %> 
+          <h2>Tvoz Control</h2>
+          <p>
+            Create a big connection for help to develop a better language pronunciation, keep improving your classes with better tools, let your students grow bigger, speak better.
+          </p>
+          <p>
+            Perfect method for make them continue their learnign path, creating an easy way to tracking their improving in a daily or weekly review, where you as a professor can update their progress as quickly as you can imagine. 
+          </p>
         </div>
       </div>
     </div>
     
-    <hr class="my-4">
-
-    <%# Fixed background %>
-
-    <figure>
-      <div class="fixed-wrap">
-        <div id="fixed">
-        </div>
-      </div>
-    </figure>
-
-<%# emoji section %>
-    <%# <button class="fun" data-toggle="collapse" data-target="#emoji">Click for fun
-    </button>
-    <div id="emoji" class="collapse">
-      <div class="container-fluid padding">
-        <div class="row text-center">
-          <div class="col-sm-6 col-md-3">      
-            <%= image_tag("/images/mouth_speaking.gif", class: 'gif') %>  
-          <%# </div> %>
-          <%# <div class="col-sm-6 col-md-3">       %>
-            <%# <%= image_tag("/images/pink_sound.gif", class: 'gif') %>   
-          <%# </div> %>
-          <%# <div class="col-sm-6 col-md-3">       %>
-            <%# <%= image_tag("/images/mouth_speaking.gif", class: 'gif') %>   
-          <%# </div> %>
-          <%# <div class="col-sm-6 col-md-3">       %>
-            <%# <%= image_tag("/images/pink_sound.gif", class: 'gif') %>   
-          <%# </div> %>
-      <%# </div> %>
-    <%# </div>  %>
-    
-
-    <%# meet the Team %>
-
-    <div class=" container-fluid padding">
-      <div clas="row welcome text-center">
-        <div clas="col-12">
-          <h1 class="display-4">Meet the team</h1>
-        </div>
-        <hr>
-      </div>
-    </div>
-
-    <%# Cards %>
-
-    <div class="container-fluid padding">
-      <div class="row padding">
-        <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="/images/default_avatar.png">
-            <div class="card-body">
-              <h4 class="card-title"> John doe </h4>
-              <p clas="card-text">John is an internet entrepreneur with
-              almost 20 years of experience.
-              </p>
-              <%= link_to "#", type: "button", class:"btn btn-outline-secondary"  do %> 
-                Learn More
-              <% end %> 
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="/images/default_avatar.png">
-            <div class="card-body">
-              <h4 class="card-title"> JMary jo </h4>
-              <p clas="card-text">John is an internet entrepreneur with
-              almost 20 years of experience.
-              </p>
-              <%= link_to "#", type: "button", class:"btn btn-outline-secondary"  do %> 
-                Learn More
-              <% end %> 
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="/images/default_avatar.png">
-            <div class="card-body">
-              <h4 class="card-title"> Phil</h4>
-              <p clas="card-text">John is an internet entrepreneur with
-              almost 20 years of experience.
-              </p>
-              <%= link_to "#", type: "button", class:"btn btn-outline-secondary"  do %> 
-                See profile
-              <% end %> 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr class="my-4"> 
 <%#  Two column section (2)   %>
-    <div class="container-fluid padding">
+    <div class="container-fluid padding outer-box-bg">
       <div class="row padding">
         <div class="col-md-12 col-lg-6">
           <h2>Our  Philosophy</h2>
           <p>
-          he follow! method changes the id of the user instance sent as an argument
+            A world with better understanding, better communication, clearly words.
           </p>
           <p>
-          he follow! method changes the id of the user instance sent as an argument
+            Never is too late to help other, feel the happiness of helping to improve others.
           </p>
           <br>
         </div>
@@ -217,26 +94,25 @@
       </div>
     </div>
     
-    <%# <hr class="my-4">  %>
 
     <%#  login secction %>
-    <div class="container-fluid padding" id="outer-box-style">
+    <div class="container-fluid padding " id="outer-box-signup-login">
       <div class="row justify-content-center">
-        <div class="col-md-4" id="box-style-1">
-          <%= link_to new_user_session_path, type:"button", class:"col-12 btn btn-secondary btn-lg" do %>
+        <div class="col-md-4 box-style-1" >
+          <%= button_to new_user_session_path, type:"button", class:"col-12 btn btn-secondary btn-lg" do %>
             <i class="fas fa-sign-in-alt"> Login</i>
           <% end %>
           <br>
           <br>
-          <%= link_to new_user_registration_path, type:"button", class:"col-12   btn btn-primary btn-lg " do %>
-            <i class="fas fa-user-plus">Sign up</i>
+          <%= button_to new_user_registration_path, type:"button", class:"col-12   btn btn-primary btn-lg  sign-up" do %>
+            <i class="fas fa-user-plus-2">Sign up</i>
           <% end %>
         </div>
       </div>
     </div> 
-    <%# <hr class="my-4">  %>
+
  <%# connect %>
-    <div class="container-fluid padding">
+    <div class="container-fluid padding outer-box-bg">
       <div class="row text-center padding">
         <div class ="col-12">
           <h2>Connect</h2>
@@ -264,18 +140,7 @@
         </div>
       </div>
     </div>
-<%# < footer> %>
-    <footer>
-      <div class="container-fluid padding">
-        <div class="row text-center">
-          <div class="col-12">
-          <hr class="light">
-           <h5>© 2022 TVOZ All rights reserved.</h5>
-         </div>
-        </div>
-      </div>
-    </footer>
- 
+
 
 
 
