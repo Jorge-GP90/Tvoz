@@ -17,7 +17,7 @@
           <% end %> 
           <% if current_user.role == "teacher" %> 
            <li class="nav-item active">
-             <%= link_to new_task_path, id: 'new', class: 'nav-link btn btn-outline-dark' do %>
+             <%= link_to new_task_path, id: 'new_task', class: 'nav-link btn btn-outline-dark' do %>
               <i class="fas fa-plus"> </i>
              <% end %>
            </li>

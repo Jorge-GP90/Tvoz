@@ -56,7 +56,7 @@
                       <td><%= button_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%></td>
                     <% end %>
                   <% else %>
-                    <td><%= link_to 'Tvoz', task, class: "btn btn-outline-primary show-btn" %></td>
+                    <td><%= link_to 'Tvoz', task, class: "btn btn-outline-primary show-btn", id: 'audio-tvoz' %></td>
                   <% end %>
                 </tr>
               <% end %>

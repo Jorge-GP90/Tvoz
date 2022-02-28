@@ -25,7 +25,7 @@ RSpec.describe Task, type: :model do
     end
 
     context "image attached " do  
-      it "Has one image attached" do        
+      it "Has one image attached" do
         @task= FactoryBot.build(:task)
         @task.image.attach(
           io: File.open(Rails.root.join('spec', 'factories', 'images', 'test.jpeg')),
@@ -37,14 +37,14 @@ RSpec.describe Task, type: :model do
     end
 
     context "No audio attached " do    
-      it "No audio is attached" do        
+      it "No audio is attached" do
         @task= FactoryBot.build(:task, title: 'Testing', audio: nil)    
         expect(@task.audio).not_to be_attached
       end
     end
 
     context "No audio attached " do    
-      it "No audio is attached" do        
+      it "No audio is attached" do
         @task= FactoryBot.build(:task)
         @task.audio.attach(
           io: File.open(Rails.root.join('spec', 'factories', 'audios', 'test_audio.m4a')),
