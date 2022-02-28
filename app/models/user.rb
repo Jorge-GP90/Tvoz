@@ -15,6 +15,36 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', 
+                       name: 'Teacher guest',
+                       role: 'teacher'
+                       ) do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
+  def self.guest_admin
+    find_or_create_by!(email: 'guest.admin@example.com',
+                      name: 'Guest Admin',
+                      role: 'teacher',
+                      admin: true
+                      ) do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+    result = update(params, *options)
+    clean_up_passwords
+    result
+  end
 
 
   def follow(user)

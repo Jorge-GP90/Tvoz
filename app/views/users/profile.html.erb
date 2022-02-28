@@ -39,7 +39,7 @@
           <div class="table-responsive"> 
             <table class="table">
               <tbody class="table-light">
-                <% current_user.follower_user.last(2).each do |rel| %>
+                <% current_user.follower_user.last(5).each do |rel| %>
                   <tr class="text-center">
                     <td class="card-text">Follower id <br> <%= rel.id %></td>
                     <td class="card-text">Name <br><%= rel.name %></td>
