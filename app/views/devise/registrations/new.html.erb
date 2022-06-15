@@ -41,6 +41,20 @@
           </div>
         <% end %>
           <hr>
+          <div class=" text-center guest ml-auto">
+            <div class="guest active">
+              <%= button_to users_guest_sign_in_path, method: :post, class: 'btn btn-outline-primary', id: 'guest' do %>
+                <i class="fas fa-user-plus"> Teacher Guest</i>
+              <% end %>
+            </div>
+            <br>
+            <div class="guest active">
+              <%= button_to users_guest_admin_sign_in_path, method: :post, class: 'btn btn-outline-primary', id: 'admin_guest' do %>
+                <i class="fas fa-user-plus"> Admin Guest</i>
+              <% end %>
+            </div>
+          </div>
+          <hr>
         <div class="text-center">
           <%= render "devise/shared/links" %>
         </div>

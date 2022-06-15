@@ -44,7 +44,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-    # user = User.all.pluck(:id)
-    # @user = User.find_by(params[:id]) if params[:id].in?(user)z
+   
   end
 end
